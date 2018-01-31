@@ -18,6 +18,7 @@ end
 create_table :categories, default_charset: :utf8mb4, row_format: :dynamic, collate: :utf8mb4_unicode_ci do |t|
   t.int :id, primary_key: true, extra: :auto_increment
   t.varchar :name
+  t.int :article_categories_count, default: 0
 
   t.datetime :created_at
   t.datetime :updated_at
@@ -28,6 +29,7 @@ end
 create_table :tags, default_charset: :utf8mb4, row_format: :dynamic, collate: :utf8mb4_unicode_ci do |t|
   t.int :id, primary_key: true, extra: :auto_increment
   t.varchar :name
+  t.int :article_tags_count, default: 0
 
   t.datetime :created_at
   t.datetime :updated_at

@@ -42,6 +42,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    after_commit_action (1.1.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     annotate (2.7.2)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
@@ -68,6 +71,10 @@ GEM
       diffy
       mysql2
       slop (~> 3.6)
+    counter_culture (1.9.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      after_commit_action (~> 1.0)
     crass (1.0.3)
     devise (4.4.0)
       bcrypt (~> 3.0)
@@ -295,6 +302,7 @@ DEPENDENCIES
   annotate
   capybara (~> 2.13)
   convergence
+  counter_culture (~> 1.8)
   devise
   friendly_id
   jbuilder (~> 2.5)

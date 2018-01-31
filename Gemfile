@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'webpacker', '~> 3.0'
 gem 'friendly_id'
+gem 'counter_culture', '~> 1.8'
 
 group :development, :test do
   gem 'capybara', '~> 2.13'

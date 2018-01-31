@@ -44,6 +44,8 @@ class ImportArticleRepoService < BaseService
         content: md.content,
         published_at: md.published_at || article.published_at || Time.current
       }
+      article.set_categories(md.categories)
+      article.set_tags(md.tags)
 
       if article.valid?
         article.save
