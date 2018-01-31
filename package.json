@@ -1,0 +1,11 @@
+{
+  "name": "devcast",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "^3.2.1",
+    "bootswatch": "^4.0.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.11.1"
+  }
+}
