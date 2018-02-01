@@ -13,7 +13,7 @@ class DevcastMarkdown
     md.lead_content = lead_content
     md.content = content
 
-    md.slug = file_path.split("/articles/")[-1].gsub("/", "-")
+    md.slug = file_path.split("/articles/")[-1].gsub("/", "-").split(".")[0]
     md.md5 = md.markdown_md5(raw_content)
     meta = md.parse_meta_from(file_path)
     md.draft = meta[:draft]
@@ -45,7 +45,7 @@ class DevcastMarkdown
     if c.size >= 2
       [c[0].strip, c[1..-1].join("\n").strip]
     else
-      ["", content.strip]
+      ["", removed_meta_content]
     end
   end
 

@@ -11,7 +11,7 @@ module Devcast
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-    config.autoload_paths += Dir["#{config.root}/lib/",
+    config.autoload_paths += Dir["#{config.root}/lib/**/",
                                  "#{config.root}/services"]
 
     config.generators do |g|

@@ -37,6 +37,7 @@ class ImportArticleRepoService < BaseService
       next if article.md5 == md.md5
 
       article.attributes = {
+        published: !md.draft,
         title: md.title,
         repo_name: repo_name,
         md5: md.md5,

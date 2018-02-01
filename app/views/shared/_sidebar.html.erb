@@ -1,0 +1,73 @@
+<% toc ||= "" %>
+<% page_categories ||= [] %>
+<% related_articles ||= [] %>
+<% page_new_articles ||= [] %>
+<% page_tags ||= [] %>
+
+<% if toc.present? %>
+<div class="container article-sidebar">
+  <div class="row">
+    <h2>目次</h2>
+
+    <%= toc %>
+  </div>
+</div>
+<% end %>
+
+<% if related_articles.present? %>
+<div class="container article-sidebar mt-20">
+  <div class="row">
+    <h2>関連記事</h2>
+
+    <ul>
+      <% related_articles.each do |article| %>
+        <li>
+          <%= link_to article.title, article_path(article) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+
+<div class="container article-sidebar">
+  <div class="row">
+    <h2>カテゴリ</h2>
+
+    <ul>
+      <% page_categories.each do |category| %>
+        <li>
+          <a href="#"><%= category.name %> (<%= category.article_categories_count %>)</a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="container article-sidebar mt-20">
+  <div class="row">
+    <h2>新着記事</h2>
+
+    <ul>
+      <% page_new_articles.each do |article| %>
+        <li>
+          <%= link_to article.title, article_path(article) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="container article-sidebar mt-20">
+  <div class="row">
+    <h2>タグ</h2>
+
+    <ul>
+      <% page_tags.each do |tag| %>
+        <li>
+          <a href="#"><%= tag.name %> (<%= tag.article_tags_count %>)</a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

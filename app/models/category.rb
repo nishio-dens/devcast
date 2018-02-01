@@ -21,7 +21,7 @@ class Category < ApplicationRecord
 
   # Scopes
   scope :active, -> do
-    cond = Category.arel_table[:article_category_count].gt(0)
+    cond = Category.arel_table[:article_categories_count].gt(0)
     where(cond)
   end
 

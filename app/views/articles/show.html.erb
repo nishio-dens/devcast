@@ -1,19 +1,15 @@
 <div class="container article-container">
   <div class="row">
     <div class="col-md-9">
-      <div class="well sidebar-nav">
-        <ul class="nav nav-list">
-          <li class="nav-header">Content Management</li>
-          <li><a href="../../=">test</a></li>
-          <li><a href="../../">test2</a></li>
-        </ul>
-      </div>
+      <%= render "shared/article", article: @article %>
     </div>
     <div class="col-md-3 hidden-sm mt-20">
       <%= render "shared/sidebar",
                  page_categories: @page_categories,
                  page_new_articles: @page_new_articles,
-                 page_tags: @page_tags %>
+                 page_tags: @page_tags,
+                 related_articles: @article.related_articles(limit: 5),
+                 toc: devcast_markdown_content_toc(@article.lead_html, @article.content_html) %>
     </div>
   </div>
 </div>

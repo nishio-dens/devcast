@@ -44,8 +44,22 @@ class Article < ApplicationRecord
   # Callbacks
 
   # Scopes
+  scope :published, -> do
+    where(published: true)
+  end
 
   # Methods
+
+  def related_articles(limit: 5)
+    category_ids = self.article_categories.pluck(:category_id)
+    Article
+      .published
+      .joins(:article_categories)
+      .where(article_categories: { category_id: category_ids })
+      .order(published_at: :desc)
+      .distinct
+      .limit(limit)
+  end
 
   def active_tags
     self.tags.reject(&:_destroy)
@@ -91,5 +105,30 @@ class Article < ApplicationRecord
         self.categories.build(name: name)
       end
     end
+  end
+
+  def lead_html
+    md = markdown_engine
+    md.render(self.lead_content).html_safe
+  end
+
+  def content_html
+    md = markdown_engine
+    @content_html ||= md.render(self.content).html_safe
+  end
+
+  private
+
+  def markdown_engine
+    renderer = Redcarpet::Render::DevcastHtml.new(
+      with_toc_data: true,
+      hard_warp: true,
+      repo_name: self.repo_name
+    )
+    @markdown_engine ||= Redcarpet::Markdown.new(
+      renderer,
+      tables: true,
+      fenced_code_blocks: true
+    )
   end
 end

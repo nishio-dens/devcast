@@ -1,0 +1,38 @@
+<div class="article-container">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to "トップ", root_path %>
+    </li>
+    <li class="breadcrumb-item">
+      <% article.categories.each do |category| %>
+        <span class="breadcrumb-category">
+          <%= link_to category_path(category) do %>
+            <%= category.name %>
+          <% end %>
+        </span>
+      <% end %>
+    </li>
+  </ol>
+
+  <h1><%= article.title %></h1>
+    <div class="article-container__title-additional">
+    <% article.tags.each do |tag| %>
+      <%= link_to tag_path(tag) do %>
+        <span class="badge badge-pill badge-secondary"><%= tag.name %></span>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="article-container__title-additional">
+    <span class="article-container__title-additional-item">Author:
+      <a href="https://github.com/nishio-dens" target="_blank">@nishio-dens</a>
+    <span>
+    <span class="article-container__item-split">/</span>
+    <span class="article-container__title-additional-item"><%= article.published_at&.strftime("%Y年%m月%d日") %>に投稿</span>
+  </div>
+
+  <div class="article-container__article">
+    <%= @article.lead_html %>
+    <%= @article.content_html %>
+  </div>
+
+</div>
