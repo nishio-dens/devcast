@@ -1,14 +1,15 @@
-class ArticlesController < FrontBaseController
-  def index
+class TagsController < FrontBaseController
+  def show
+    @tag = Tag.active.find(params[:id])
     @articles = Article
+                  .joins(:tags)
                   .preload(:tags, :categories)
                   .published
+                  .where(tags: { id: @tag.id })
+                  .distinct
                   .order(published_at: :desc)
                   .page(params[:page] || 1)
                   .per(30)
-  end
 
-  def show
-    @article = Article.friendly.published.find(params[:id])
   end
 end

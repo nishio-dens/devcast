@@ -1,0 +1,39 @@
+<div class="article-container__article-listing">
+  <% articles.each do |article| %>
+    <div class="article-container__article-listing-element">
+      <div class="article-container__article-listing-element-title">
+        <%=link_to article_path(article) do %>
+          <h2><%= article.title %></h2>
+        <% end %>
+      </div>
+
+      <div class="article-container__title-additional">
+        <% article.categories.each do |category| %>
+          <%= link_to category_path(category) do %>
+            <span class="badge badge-pill badge-secondary"><%= category.name %></span>
+          <% end %>
+        <% end %>
+        <% article.tags.each do |tag| %>
+          <%= link_to tag_path(tag) do %>
+            <span class="badge badge-pill badge-secondary"><%= tag.name %></span>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="article-container__title-additional">
+                <span class="article-container__title-additional-item">
+                  <a href="https://github.com/nishio-dens" target="_blank">@nishio-dens</a>
+                </span>
+        <span class="article-container__item-split">/</span>
+        <span class="article-container__title-additional-item"><%= article.published_at&.strftime("%Y年%m月%d日") %>に投稿</span>
+      </div>
+
+      <div class="article-container__article-listing-lead">
+        <%= article.lead_html %>
+      </div>
+
+      <div class="article-container__article-more">
+        <%= link_to "続きを読む", article_path(article) %>
+      </div>
+    </div>
+  <% end %>
+</div>

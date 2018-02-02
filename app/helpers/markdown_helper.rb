@@ -33,6 +33,8 @@ module MarkdownHelper
           end.join("\n")
           c += "</ul>"
           c
+        else
+          c
         end
       end.join("\n")
       }

@@ -11,7 +11,7 @@ class Redcarpet::Render::DevcastHtml < Redcarpet::Render::HTML
 
   def header(text, level)
     number = 2
-    anchor = text.downcase.gsub(' ', '-')
+    anchor = Digest::MD5.hexdigest(text)
 
     while @anchors.include?(anchor)
       if number > 2

@@ -37,7 +37,9 @@
     <ul>
       <% page_categories.each do |category| %>
         <li>
-          <a href="#"><%= category.name %> (<%= category.article_categories_count %>)</a>
+          <%= link_to category_path(category) do %>
+            <%= category.name %> (<%= category.article_categories_count %>)
+          <% end %>
         </li>
       <% end %>
     </ul>
@@ -65,7 +67,9 @@
     <ul>
       <% page_tags.each do |tag| %>
         <li>
-          <a href="#"><%= tag.name %> (<%= tag.article_tags_count %>)</a>
+          <%= link_to tag_path(tag) do %>
+            <%= tag.name %> (<%= tag.article_tags_count %>)
+          <% end %>
         </li>
       <% end %>
     </ul>

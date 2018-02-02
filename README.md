@@ -1,24 +1,46 @@
-# README
+# DevCast
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+技術ブログ DevCast 管理用アプリケーションです。
 
-Things you may want to cover:
+## 記事のアップロード
 
-* Ruby version
+DevCastサーバに向けて記事をgit pushしてください。
 
-* System dependencies
+```
+git remote add deploy git@dev.densan-labs.net:devcast/devcast.git
+```
 
-* Configuration
+## 記事リポジトリの形式
 
-* Database creation
+articles ディレクトリの下に .md 形式で記事を配置してください。
+images には利用する画像を配置してください。
 
-* Database initialization
+### ディレクトリ例
 
-* How to run the test suite
+```
+.
+├── articles
+│   ├── hello-world.md
+│   └── infra
+│       ├── another-example.md
+│       └── test.md
+└── images
+    └── image-test.png
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## 記事の形式
 
-* Deployment instructions
+記事の先頭にYAML形式で以下を追記してください。
 
-* ...
+```
+---
+title: "ここは記事のタイトルです"
+author: nishio-dens
+draft: false
+categories: Rails
+tags: ruby, ActiveRecord
+published_at: 2018-02-03 15:00
+--
+```
+
+draft: false の場合、記事が公開されます。

@@ -2,13 +2,11 @@
   <div class="row">
     <div class="col-md-9">
       <div class="article-container">
-        <h1>DevCast 記事一覧</h1>
+        <h1>カテゴリ: <%= @category.name %></h1>
 
         <div class="article-container__article-listing">
           <%= render "shared/articles_with_lead", articles: @articles %>
         </div>
-
-        <%= paginate @articles %>
       </div>
     </div>
 

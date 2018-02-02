@@ -25,6 +25,7 @@ class Article < ApplicationRecord
   has_many :article_tags, dependent: :destroy
   has_many :tags, through: :article_tags
 
+  accepts_nested_attributes_for :categories
   accepts_nested_attributes_for :tags
 
   # Validations
@@ -81,7 +82,6 @@ class Article < ApplicationRecord
       tag = Tag.find_by(name: name)
       if tag.present?
         self.article_tags.build(tag_id: tag.id)
-        self.association(:tags).add_to_target(tag)
       else
         self.tags.build(name: name)
       end
@@ -100,7 +100,6 @@ class Article < ApplicationRecord
       category = Category.find_by(name: name)
       if category.present?
         self.article_categories.build(category_id: category.id)
-        self.association(:categories).add_to_target(category)
       else
         self.categories.build(name: name)
       end

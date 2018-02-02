@@ -1,14 +1,15 @@
 <div class="container article-container">
   <div class="row">
     <div class="col-md-9">
-      <div class="well sidebar-nav">
-        <ul class="nav nav-list">
-          <li class="nav-header">Content Management</li>
-          <li><a href="../../=">test</a></li>
-          <li><a href="../../">test2</a></li>
-        </ul>
+      <div class="article-container">
+        <h1>Web技術ブログ</h1>
+
+        <div class="article-container__article-listing">
+          <%= render "shared/articles_with_lead", articles: @articles %>
+        </div>
       </div>
     </div>
+
     <div class="col-md-3 hidden-sm mt-20">
       <%= render "shared/sidebar",
                  page_categories: @page_categories,
