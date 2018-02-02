@@ -1,5 +1,7 @@
 <% toc ||= "" %>
 <% page_categories ||= [] %>
+<% prev_article ||= nil %>
+<% next_article ||= nil %>
 <% related_articles ||= [] %>
 <% page_new_articles ||= [] %>
 <% page_tags ||= [] %>
@@ -10,6 +12,34 @@
     <h2>目次</h2>
 
     <%= toc %>
+  </div>
+</div>
+<% end %>
+
+<% if next_article.present? %>
+<div class="container article-sidebar mt-20">
+  <div class="row">
+    <h2>次の記事</h2>
+
+    <ul>
+      <li>
+        <%= link_to next_article.title, article_path(next_article) %>
+      </li>
+    </ul>
+  </div>
+</div>
+<% end %>
+
+<% if prev_article.present? %>
+<div class="container article-sidebar mt-20">
+  <div class="row">
+    <h2>前の記事</h2>
+
+    <ul>
+      <li>
+        <%= link_to prev_article.title, article_path(prev_article) %>
+      </li>
+    </ul>
   </div>
 </div>
 <% end %>

@@ -27,6 +27,8 @@ gem 'friendly_id'
 gem 'counter_culture', '~> 1.8'
 gem 'redcarpet'
 gem 'rouge'
+gem 'sitemap_generator'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'capybara', '~> 2.13'

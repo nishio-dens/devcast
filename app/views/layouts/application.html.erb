@@ -15,6 +15,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= favicon_link_tag "devcast-icon.png" %>
 
+    <% description = yield :page_description %>
+    <% if description.present? %>
+      <meta name="description" content="<%= description %>" %>
+    <% else %>
+      <meta name="description" content="DevCastではWeb関連の技術をまとめたブログです。" %>
+    <% end %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>

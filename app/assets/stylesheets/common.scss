@@ -9,6 +9,10 @@
   .pr-#{$i * 5} {padding-right:#{$i * 5}px;}
 }
 
+.full-width {
+  width: 100%;
+}
+
 // turbolinks
 .turbolinks-progress-bar {
   height: 5px;

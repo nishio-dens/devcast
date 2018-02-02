@@ -62,6 +62,22 @@ class Article < ApplicationRecord
       .limit(limit)
   end
 
+  def next_article
+    Article
+      .published
+      .where(Article.arel_table[:id].gt(self.id))
+      .order(published_at: :asc)
+      .first
+  end
+
+  def prev_article
+    Article
+      .published
+      .where(Article.arel_table[:id].lt(self.id))
+      .order(published_at: :desc)
+      .first
+  end
+
   def active_tags
     self.tags.reject(&:_destroy)
   end

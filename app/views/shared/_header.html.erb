@@ -9,23 +9,16 @@
         <li class="nav-item">
           <%= link_to "記事一覧", articles_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/help/">Rails</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/help/">インフラ</a>
-        </li>
+        <% @page_header_categories.each do |header_category| %>
+          <li class="nav-item">
+            <%= link_to header_category.name, category_path(header_category.category_id), class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/" target="_blank">カテゴリ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/" target="_blank">タグ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/" target="_blank">RSS</a>
+          <%= link_to "RSS", feed_path, class: "nav-link", target: "_blank", rel: "noopener" %>
         </li>
       </ul>
     </div>
