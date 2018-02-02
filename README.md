@@ -8,6 +8,7 @@ DevCastサーバに向けて記事をgit pushしてください。
 
 ```
 git remote add deploy git@dev.densan-labs.net:devcast/devcast.git
+git push deploy master
 ```
 
 ## 記事リポジトリの形式
