@@ -161,6 +161,7 @@ GEM
     oga (2.13)
       ast
       ruby-ll (~> 2.1)
+    openssl (2.1.0)
     orm_adapter (0.5.0)
     parallel (1.12.1)
     parser (2.4.0.2)
@@ -346,6 +347,7 @@ DEPENDENCIES
   mysql2
   newrelic_rpm
   oga
+  openssl
   pry-byebug
   pry-rails
   puma (~> 3.0)

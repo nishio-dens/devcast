@@ -29,6 +29,7 @@ gem 'redcarpet'
 gem 'rouge'
 gem 'sitemap_generator'
 gem 'newrelic_rpm'
+gem 'openssl'
 
 group :development, :test do
   gem 'capybara', '~> 2.13'
