@@ -28,7 +28,6 @@ dev_database.yml
 config/settings.yml
 config/newrelic.yml
 public/sitemap.xml.gz
-tags
 /public/entries
 /public/entries-test
 /public/images
