@@ -1,4 +1,4 @@
-lock "~> 3.10.1"
+lock "~> 3.10.0"
 
 set :application, "devcast"
 set :repo_url, 'git@github.com:nishio-dens/devcast.git'
