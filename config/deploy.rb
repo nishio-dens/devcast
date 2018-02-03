@@ -6,7 +6,7 @@ set :repo_url, 'git@github.com:nishio-dens/devcast.git'
 set :deploy_to, "/app"
 set :pty, true
 
-set :linked_files, %w{config/database.yml config/settings.yml}
+set :linked_files, %w{config/database.yml config/settings.yml config/newrelic.yml}
 set :linked_dirs, %w{log tmp public/system public/images}
 
 set :keep_releases, 5
