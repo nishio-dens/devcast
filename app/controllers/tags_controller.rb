@@ -10,6 +10,5 @@ class TagsController < FrontBaseController
                   .order(published_at: :desc)
                   .page(params[:page] || 1)
                   .per(30)
-
   end
 end

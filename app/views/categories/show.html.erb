@@ -9,6 +9,8 @@
         <div class="article-container__article-listing">
           <%= render "shared/articles_with_lead", articles: @articles %>
         </div>
+
+        <%= paginate @articles %>
       </div>
     </div>
 
