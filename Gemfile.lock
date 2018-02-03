@@ -348,7 +348,7 @@ DEPENDENCIES
   oga
   pry-byebug
   pry-rails
-  puma (~> 3.7)
+  puma (~> 3.0)
   rails (~> 5.1.4)
   ransack
   redcarpet
