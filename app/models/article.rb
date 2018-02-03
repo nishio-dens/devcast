@@ -15,6 +15,8 @@
 #  updated_at   :datetime         not null
 #
 
+require "#{Rails.root}/lib/redcarpet/render/devcast_html"
+
 class Article < ApplicationRecord
   extend FriendlyId
   friendly_id :slug
